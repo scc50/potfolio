@@ -4,553 +4,200 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snai El Elohe Israel | Technology Enthusiast</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Import SF Compact font */
-        @font-face {
-            font-family: 'SF Compact';
-            src: url('https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff2') format('woff2');
-            font-weight: bold;
-            font-style: normal;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'SF Compact', -apple-system, BlinkMacSystemFont, sans-serif;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            background-color: #000000;
-            color: #ffffff;
-            line-height: 1.6;
-            padding: 0;
-            max-width: 100%;
-            margin: 0 auto;
-            overflow-x: hidden;
-        }
-        
-        /* Apple-style Navigation */
-        .navbar {
-            position: sticky;
-            top: 0;
-            background-color: rgba(0, 0, 0, 0.95);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            padding: 0 40px;
-            height: 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid #333;
-            z-index: 1000;
-        }
-        
-        .nav-logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #fff;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin: 0 15px;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: #fff;
-            font-size: 0.9rem;
-            transition: opacity 0.3s;
-            position: relative;
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #fff;
-            transition: width 0.3s;
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-        
-        .container {
-            padding: 20px 40px;
-        }
-        
-        header {
-            text-align: center;
-            padding: 80px 20px;
-            border-bottom: 3px solid #333;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-            letter-spacing: -1px;
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        
-        .location {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #ccc;
-        }
-        
-        .tagline {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-        
-        .intro {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            color: #ccc;
-        }
-        
-        .section {
-            padding: 40px;
-            border: 2px solid #333;
-            border-radius: 12px;
-            margin: 40px 0;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-            background-color: #0a0a0a;
-        }
-        
-        .section.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #333;
-            color: #fff;
-        }
-        
-        h3 {
-            font-size: 1.5rem;
-            margin: 25px 0 15px;
-            color: #fff;
-        }
-        
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .skill-category {
-            padding: 25px;
-            border: 1px solid #333;
-            border-radius: 8px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            background-color: #111;
-        }
-        
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.05);
-        }
-        
-        .skill-category h3 {
-            margin-bottom: 15px;
-            font-size: 1.5rem;
-            color: #fff;
-        }
-        
-        .skill-list {
-            list-style-type: none;
-            color: #ccc;
-        }
-        
-        .skill-list li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-        
-        .skill-list li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #fff;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            border: 1px solid #333;
-            border-radius: 8px;
-            transition: transform 0.3s ease;
-            text-decoration: none;
-            color: #fff;
-            background-color: #111;
-        }
-        
-        .contact-item:hover {
-            transform: translateX(5px);
-            background-color: #1a1a1a;
-        }
-        
-        .contact-item i {
-            font-size: 1.8rem;
-            margin-right: 15px;
-            color: #fff;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 40px;
-            margin-top: 40px;
-            border-top: 3px solid #333;
-            font-size: 1.1rem;
-            color: #ccc;
-        }
-        
-        /* Chat Bot */
-        .chat-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-        }
-        
-        .chat-button {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background-color: #fff;
-            color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .chat-button:hover {
-            transform: scale(1.1);
-        }
-        
-        .chat-button i {
-            font-size: 1.5rem;
-        }
-        
-        .chat-window {
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            width: 320px;
-            height: 400px;
-            background-color: #111;
-            border: 2px solid #333;
-            border-radius: 15px;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            box-shadow: 0 5px 25px rgba(255, 255, 255, 0.05);
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            pointer-events: none;
-        }
-        
-        .chat-window.active {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: all;
-        }
-        
-        .chat-header {
-            padding: 15px;
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            border-bottom: 1px solid #333;
-        }
-        
-        .chat-messages {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-        }
-        
-        .message {
-            margin-bottom: 15px;
-            padding: 10px 15px;
-            border-radius: 20px;
-            max-width: 80%;
-        }
-        
-        .bot-message {
-            background-color: #222;
-            color: #fff;
-            align-self: flex-start;
-            border-bottom-left-radius: 5px;
-        }
-        
-        .user-message {
-            background-color: #fff;
-            color: #000;
-            align-self: flex-end;
-            margin-left: auto;
-            border-bottom-right-radius: 5px;
-        }
-        
-        .chat-input {
-            display: flex;
-            padding: 10px;
-            border-top: 1px solid #333;
-        }
-        
-        .chat-input input {
-            flex: 1;
-            padding: 10px 15px;
-            border: 1px solid #333;
-            border-radius: 20px;
-            margin-right: 10px;
-            background-color: #000;
-            color: #fff;
-        }
-        
-        .chat-input button {
-            background-color: #fff;
-            color: #000;
-            border: none;
-            border-radius: 20px;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-        
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 0 20px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .tagline {
-                font-size: 1.2rem;
-            }
-            
-            .section {
-                padding: 20px;
-            }
-            
-            .chat-window {
-                width: 300px;
-                right: -20px;
-            }
-        }
+        body { background-color: #171717; }
+        .custom-orange { background-color: rgba(255, 146, 51, 0.15); color: #FF9233; }
+        .custom-white { background-color: rgba(255, 255, 255, 0.1); color: white; }
+        .card { transition: transform 0.2s; }
+        .card:hover { transform: translateY(-4px); }
+        textarea { resize: none; }
+        .chat-button { background-color: #FF9233; color: #000; }
+        .chat-window { background-color: #252525; border-color: #333; }
+        .chat-header { background-color: #171717; border-bottom: 1px solid #333; }
+        .chat-input input { background-color: #171717; border-color: #333; color: white; }
+        .chat-input button { background-color: #FF9233; color: #000; }
+        .bot-message { background-color: #333; color: white; }
+        .user-message { background-color: #FF9233; color: #000; }
+        .skill-list li { position: relative; padding-left: 1.5rem; }
+        .skill-list li:before { content: "•"; position: absolute; left: 0; color: #FF9233; }
     </style>
 </head>
-<body>
-    <!-- Apple-style Navigation -->
-    <nav class="navbar">
-        <div class="nav-logo">Snai Israel</div>
-        <ul class="nav-links">
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#about">About</a></li>
-        </ul>
-    </nav>
+<body class="text-white font-sans">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Navigation -->
+        <nav class="flex justify-between items-center py-6">
+            <div class="text-2xl font-bold">Snai Israel</div>
+            <div class="flex space-x-4 items-center">
+                <a href="#skills" class="text-gray-400 hover:text-white">Skills</a>
+                <a href="#projects" class="text-gray-400 hover:text-white">Projects</a>
+                <a href="#contact" class="text-gray-400 hover:text-white">Contact</a>
+                <a href="#about" class="text-gray-400 hover:text-white">About</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="mailto:sherlockcc50@gmail.com" class="custom-orange px-4 py-2 rounded-full font-medium">Contact Me</a>
+                <a href="https://github.com/scc50" class="custom-white px-4 py-2 rounded-full font-medium">GitHub</a>
+            </div>
+        </nav>
 
-    <div class="container">
-        <header>
-            <h1>SNAI EL ELOHE ISRAEL</h1>
-            <p class="location">Kigali, Rwanda</p>
-            <p class="tagline">Technology Enthusiast & Full-Stack Developer</p>
-            <p class="intro">Passionate and self-driven technology enthusiast with a strong focus on programming, web development, AI, and interactive applications. Highly motivated to learn and implement cutting-edge technologies to solve modern challenges.</p>
-        </header>
-        
-        <section id="skills" class="section">
-            <h2>Technical Skills</h2>
-            
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <ul class="skill-list">
-                        <li>Python (PyVista, PyQt5, OpenCV, SymPy)</li>
-                        <li>C, C++</li>
-                        <li>JavaScript (React, Node.js)</li>
-                        <li>Rust, Golang, PHP</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Web Development</h3>
-                    <ul class="skill-list">
-                        <li>Full-stack (Django + React, Laravel)</li>
-                        <li>Tailwind CSS, UI/UX design</li>
-                        <li>WebSockets & real-time updates</li>
-                        <li>Payment integrations (MTN MoMo, PayPal, Stripe)</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>AI & Machine Learning</h3>
-                    <ul class="skill-list">
-                        <li>Transformer methods</li>
-                        <li>OpenAI Gym</li>
-                        <li>AI development strategies for Africa</li>
-                        <li>Image/audio manipulation and separation</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Data & Visualization</h3>
-                    <ul class="skill-list">
-                        <li>Matplotlib, VTK, PyVista</li>
-                        <li>Manim, Rich library</li>
-                        <li>Interactive 3D visualizations</li>
-                        <li>Data simulations</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Software & Tools</h3>
-                    <ul class="skill-list">
-                        <li>Git, Conda, Docker</li>
-                        <li>FFmpeg, Ngrok, EasyGUI</li>
-                        <li>Jarsigner, Flet</li>
-                        <li>Arch Linux, terminal customization</li>
-                    </ul>
-                </div>
-                
-                <div class="skill-category">
-                    <h3>Game & Interactive Dev</h3>
-                    <ul class="skill-list">
-                        <li>Pygame</li>
-                        <li>Three.js, turtles3D</li>
-                        <li>HUD interfaces in PyQt</li>
-                        <li>Interactive graphics</li>
-                    </ul>
+        <!-- Hero Section -->
+        <div class="text-center mt-24 mb-12">
+            <h1 class="text-5xl md:text-6xl font-bold leading-tight">Snai El Elohe Israel</h1>
+            <p class="text-lg md:text-xl text-gray-400 mt-4 max-w-2xl mx-auto">
+                Technology Enthusiast & Full-Stack Developer | Kigali, Rwanda
+            </p>
+        </div>
+
+        <!-- Contact/Message Area -->
+        <div class="bg-[#252525] rounded-[32px] p-6 max-w-3xl mx-auto mb-16">
+            <textarea class="w-full bg-transparent text-white placeholder-gray-400 border border-gray-600 rounded-lg p-4 h-32" placeholder="Send me a message about a project or collaboration..."></textarea>
+            <div class="flex justify-between mt-4">
+                <button class="custom-white px-4 py-2 rounded-full">Attach File</button>
+                <button class="custom-orange px-4 py-2 rounded-full">Send Message</button>
+            </div>
+        </div>
+
+        <!-- Skills Grid -->
+        <div id="skills" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
+            <div class="card bg-[#252525] rounded-[32px] overflow-hidden">
+                <div class="p-4 flex items-start space-x-4">
+                    <i class="fas fa-code text-4xl text-[#FF9233]"></i>
+                    <div>
+                        <p class="font-medium text-lg">Programming Languages</p>
+                        <ul class="skill-list text-sm text-gray-400 mt-2">
+                            <li>Python (PyVista, PyQt5, OpenCV, SymPy)</li>
+                            <li>JavaScript (React, Node.js, TypeScript)</li>
+                            <li>C, C++, Rust, Golang</li>
+                            <li>PHP, Dart</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </section>
-        
-        <section id="projects" class="section">
-            <h2>Projects & Practical Work</h2>
-            
-            <h3>Web Applications</h3>
-            <ul class="skill-list">
-                <li>Full-stack web applications with real-time features</li>
-                <li>Secure login systems and authentication protocols</li>
-                <li>Payment-enabled e-commerce platforms</li>
-                <li>Responsive web interfaces with modern UI/UX</li>
-            </ul>
-            
-            <h3>AI-Powered Solutions</h3>
-            <ul class="skill-list">
-                <li>AI projects for image/audio manipulation</li>
-                <li>Machine learning models for African market needs</li>
-                <li>Intelligent data processing applications</li>
-            </ul>
-            
-            <h3>Visualization & Interactive Tools</h3>
-            <ul class="skill-list">
-                <li>Interactive 3D visualizations and simulations</li>
-                <li>Scientific computing applications</li>
-                <li>Advanced graphics and user interface design</li>
-            </ul>
-        </section>
-        
-        <section id="contact" class="section">
-            <h2>Connect With Me</h2>
-            <div class="contact-info">
-                <a href="mailto:sherlockcc50@gmail.com" class="contact-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>sherlockcc50@gmail.com</div>
-                </a>
-                <a href="https://github.com/scc50" target="_blank" class="contact-item">
-                    <i class="fab fa-github"></i>
-                    <div>github.com/scc50</div>
-                </a>
-                <a href="https://linkedin.com/in/scc50" target="_blank" class="contact-item">
-                    <i class="fab fa-linkedin"></i>
-                    <div>linkedin.com/in/scc50</div>
-                </a>
-                <a href="https://instagram.com/sherlockcc50" target="_blank" class="contact-item">
-                    <i class="fab fa-instagram"></i>
-                    <div>instagram.com/sherlockcc50</div>
-                </a>
+            <div class="card bg-[#252525] rounded-[32px] overflow-hidden">
+                <div class="p-4 flex items-start space-x-4">
+                    <i class="fas fa-globe text-4xl text-[#FF9233]"></i>
+                    <div>
+                        <p class="font-medium text-lg">Web Development</p>
+                        <ul class="skill-list text-sm text-gray-400 mt-2">
+                            <li>Full-stack (Django + React, Laravel)</li>
+                            <li>Tailwind CSS, UI/UX Design</li>
+                            <li>WebSockets, GraphQL</li>
+                            <li>Payment Systems (MTN MoMo, PayPal, Stripe)</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-        </section>
+            <div class="card bg-[#252525] rounded-[32px] overflow-hidden">
+                <div class="p-4 flex items-start space-x-4">
+                    <i class="fas fa-brain text-4xl text-[#FF9233]"></i>
+                    <div>
+                        <p class="font-medium text-lg">AI & Machine Learning</p>
+                        <ul class="skill-list text-sm text-gray-400 mt-2">
+                            <li>Transformers, TensorFlow, PyTorch</li>
+                            <li>OpenAI Gym, RL Algorithms</li>
+                            <li>Image/Audio Processing</li>
+                            <li>AI for African Markets</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-[#252525] rounded-[32px] overflow-hidden">
+                <div class="p-4 flex items-start space-x-4">
+                    <i class="fas fa-chart-line text-4xl text-[#FF9233]"></i>
+                    <div>
+                        <p class="font-medium text-lg">Data & Visualization</p>
+                        <ul class="skill-list text-sm text-gray-400 mt-2">
+                            <li>Matplotlib, VTK, PyVista</li>
+                            <li>Manim, Rich Library</li>
+                            <li>Interactive 3D Visualizations</li>
+                            <li>Data Simulations & Analysis</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-[#252525] rounded-[32px] overflow-hidden">
+                <div class="p-4 flex items-start space-x-4">
+                    <i class="fas fa-tools text-4xl text-[#FF9233]"></i>
+                    <div>
+                        <p class="font-medium text-lg">Software & Tools</p>
+                        <ul class="skill-list text-sm text-gray-400 mt-2">
+                            <li>Git, Conda, Docker</li>
+                            <li>FFmpeg, Ngrok, EasyGUI</li>
+                            <li>Jarsigner, Flet</li>
+                            <li>Arch Linux, Terminal Customization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-[#252525] rounded-[32px] overflow-hidden">
+                <div class="p-4 flex items-start space-x-4">
+                    <i class="fas fa-gamepad text-4xl text-[#FF9233]"></i>
+                    <div>
+                        <p class="font-medium text-lg">Game & Interactive Dev</p>
+                        <ul class="skill-list text-sm text-gray-400 mt-2">
+                            <li>Pygame, Godot</li>
+                            <li>Three.js, turtles3D</li>
+                            <li>PyQt HUD Interfaces</li>
+                            <li>Augmented Reality (AR.js)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-[#252525] rounded-[32px] overflow-hidden">
+                <div class="p-4 flex items-start space-x-4">
+                    <i class="fas fa-cloud text-4xl text-[#FF9233]"></i>
+                    <div>
+                        <p class="font-medium text-lg">Cloud & DevOps</p>
+                        <ul class="skill-list text-sm text-gray-400 mt-2">
+                            <li>AWS, Google Cloud</li>
+                            <li>Kubernetes, CI/CD Pipelines</li>
+                            <li>Terraform, Ansible</li>
+                            <li>Serverless Architectures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="card bg-[#252525] rounded-[32px] overflow-hidden">
+                <div class="p-4 flex items-start space-x-4">
+                    <i class="fas fa-mobile-alt text-4xl text-[#FF9233]"></i>
+                    <div>
+                        <p class="font-medium text-lg">Mobile Development</p>
+                        <ul class="skill-list text-sm text-gray-400 mt-2">
+                            <li>Flutter, React Native</li>
+                            <li>Android SDK, Kotlin</li>
+                            <li>Cross-Platform App Dev</li>
+                            <li>Mobile UI/UX Design</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <section id="about" class="section">
-            <h2>Personal Interests</h2>
-            
-            <p>I'm deeply passionate about exploring the latest advancements in AI, web development, and interactive graphics. My drive comes from studying and mastering complex programming concepts and frameworks, with a particular focus on applying technology solutions to real-world problems, especially in education and business across Africa.</p>
-            
-            <h3>Other Interests</h3>
-            <ul class="skill-list">
-                <li>Version control systems and best practices</li>
-                <li>Linux ecosystem, particularly Arch Linux</li>
-                <li>Terminal customization and optimization</li>
-                <li>File transfer solutions and network protocols</li>
-                <li>Hardware troubleshooting and optimization</li>
-            </ul>
-        </section>
+        <!-- Footer -->
+        <footer class="text-center text-gray-400 py-8">
+            <a href="#" class="hover:text-white mx-2">Terms</a> •
+            <a href="#" class="hover:text-white mx-2">Privacy</a> •
+            <a href="https://github.com/scc50" class="hover:text-white mx-2">GitHub</a> •
+            <a href="https://linkedin.com/in/scc50" class="hover:text-white mx-2">LinkedIn</a>
+        </footer>
     </div>
-    
-    <footer>
-        <p>© 2025 Snai El Elohe Israel | Technology Enthusiast & Developer</p>
-    </footer>
 
     <!-- Chat Bot -->
-    <div class="chat-container">
-        <div class="chat-button">
-            <i class="fas fa-comment"></i>
+    <div class="chat-container fixed bottom-6 right-6 z-50">
+        <div class="chat-button w-14 h-14 rounded-full flex justify-center items-center cursor-pointer shadow-lg">
+            <i class="fas fa-comment text-xl"></i>
         </div>
-        <div class="chat-window">
-            <div class="chat-header">
-                <h3>Snai Assistant</h3>
+        <div class="chat-window absolute bottom-16 right-0 w-80 h-96 flex flex-col rounded-[15px] overflow-hidden opacity-0 translate-y-5 transition-all pointer-events-none">
+            <div class="chat-header p-4 text-center">
+                <h3 class="text-lg font-medium">Snai Assistant</h3>
             </div>
-            <div class="chat-messages">
-                <div class="message bot-message">Hello! How can I help you today?</div>
+            <div class="chat-messages flex-1 p-4 overflow-y-auto">
+                <div class="message bot-message rounded-[20px] p-3 mb-3 max-w-[80%]">Hello! How can I help you today?</div>
             </div>
-            <div class="chat-input">
-                <input type="text" placeholder="Type your message...">
-                <button><i class="fas fa-paper-plane"></i></button>
+            <div class="chat-input flex p-3 border-t border-gray-600">
+                <input type="text" placeholder="Type your message..." class="flex-1 p-2 rounded-[20px] mr-2">
+                <button class="rounded-[20px] px-4 py-2"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
     </div>
@@ -558,92 +205,71 @@
     <script>
         // Toggle chat window
         document.querySelector('.chat-button').addEventListener('click', function() {
-            document.querySelector('.chat-window').classList.toggle('active');
+            document.querySelector('.chat-window').classList.toggle('opacity-0');
+            document.querySelector('.chat-window').classList.toggle('translate-y-5');
+            document.querySelector('.chat-window').classList.toggle('pointer-events-none');
         });
 
-        // Scroll animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('.section');
-            
-            function checkScroll() {
-                sections.forEach(section => {
-                    const sectionTop = section.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (sectionTop < windowHeight * 0.75) {
-                        section.classList.add('visible');
-                    }
-                });
-            }
-            
-            // Initial check
-            checkScroll();
-            
-            // Check on scroll
-            window.addEventListener('scroll', checkScroll);
-            
-            // Simple chat functionality
-            const chatInput = document.querySelector('.chat-input input');
-            const chatMessages = document.querySelector('.chat-messages');
-            const chatSendBtn = document.querySelector('.chat-input button');
-            
-            chatInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    sendMessage();
-                }
-            });
-            
-            chatSendBtn.addEventListener('click', sendMessage);
-            
-            function sendMessage() {
-                const message = chatInput.value.trim();
-                if (message) {
-                    // Add user message
-                    const userMessageElem = document.createElement('div');
-                    userMessageElem.classList.add('message', 'user-message');
-                    userMessageElem.textContent = message;
-                    chatMessages.appendChild(userMessageElem);
-                    
-                    // Clear input
-                    chatInput.value = '';
-                    
-                    // Scroll to bottom
-                    chatMessages.scrollTop = chatMessages.scrollHeight;
-                    
-                    // Simulate bot response after a short delay
-                    setTimeout(() => {
-                        const botResponse = getBotResponse(message);
-                        const botMessageElem = document.createElement('div');
-                        botMessageElem.classList.add('message', 'bot-message');
-                        botMessageElem.textContent = botResponse;
-                        chatMessages.appendChild(botMessageElem);
-                        
-                        // Scroll to bottom again
-                        chatMessages.scrollTop = chatMessages.scrollHeight;
-                    }, 1000);
-                }
-            }
-            
-            function getBotResponse(message) {
-                const lowerMsg = message.toLowerCase();
-                
-                if (lowerMsg.includes('service') || lowerMsg.includes('what do you do')) {
-                    return "I'm a full-stack developer specializing in web development, AI, and interactive applications. Check out my Skills section for more details!";
-                } else if (lowerMsg.includes('contact') || lowerMsg.includes('email') || lowerMsg.includes('how to reach')) {
-                    return "You can reach me at sherlockcc50@gmail.com or through my social media links in the Contact section.";
-                } else if (lowerMsg.includes('hello') || lowerMsg.includes('hi') || lowerMsg.includes('hey')) {
-                    return "Hello there! How can I assist you today?";
-                } else if (lowerMsg.includes('project') || lowerMsg.includes('work together')) {
-                    return "Great! Please email me at sherlockcc50@gmail.com with your project details and I'll get back to you within 24 hours.";
-                } else if (lowerMsg.includes('rwanda') || lowerMsg.includes('location') || lowerMsg.includes('where')) {
-                    return "I'm based in Kigali, Rwanda, but I work with clients globally.";
-                } else if (lowerMsg.includes('skill') || lowerMsg.includes('technology')) {
-                    return "I work with Python, JavaScript, AI technologies, web development, and much more. Check out my Skills section for a complete list!";
-                } else {
-                    return "I'm sorry, I didn't understand that. Could you please rephrase? You can ask me about my skills or how to contact me.";
-                }
+        // Simple chat functionality
+        const chatInput = document.querySelector('.chat-input input');
+        const chatMessages = document.querySelector('.chat-messages');
+        const chatSendBtn = document.querySelector('.chat-input button');
+
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
             }
         });
+
+        chatSendBtn.addEventListener('click', sendMessage);
+
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message) {
+                // Add user message
+                const userMessageElem = document.createElement('div');
+                userMessageElem.classList.add('message', 'user-message', 'rounded-[20px]', 'p-3', 'mb-3', 'max-w-[80%]', 'ml-auto');
+                userMessageElem.textContent = message;
+                chatMessages.appendChild(userMessageElem);
+
+                // Clear input
+                chatInput.value = '';
+
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+
+                // Simulate bot response
+                setTimeout(() => {
+                    const botResponse = getBotResponse(message);
+                    const botMessageElem = document.createElement('div');
+                    botMessageElem.classList.add('message', 'bot-message', 'rounded-[20px]', 'p-3', 'mb-3', 'max-w-[80%]');
+                    botMessageElem.textContent = botResponse;
+                    chatMessages.appendChild(botMessageElem);
+
+                    // Scroll to bottom again
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        function getBotResponse(message) {
+            const lowerMsg = message.toLowerCase();
+            if (lowerMsg.includes('service') || lowerMsg.includes('what do you do')) {
+                return "I'm a full-stack developer specializing in web development, AI, and interactive applications. Check out my Skills section for more details!";
+            } else if (lowerMsg.includes('contact') || lowerMsg.includes('email') || lowerMsg.includes('how to reach')) {
+                return "You can reach me at sherlockcc50@gmail.com or through my social media links in the Contact section.";
+            } else if (lowerMsg.includes('hello') || lowerMsg.includes('hi') || lowerMsg.includes('hey')) {
+                return "Hello there! How can I assist you today?";
+            } else if (lowerMsg.includes('project') || lowerMsg.includes('work together')) {
+                return "Great! Please email me at sherlockcc50@gmail.com with your project details and I'll get back to you within 24 hours.";
+            } else if (lowerMsg.includes('rwanda') || lowerMsg.includes('location') || lowerMsg.includes('where')) {
+                return "I'm based in Kigali, Rwanda, but I work with clients globally.";
+            } else if (lowerMsg.includes('skill') || lowerMsg.includes('technology')) {
+                return "I work with Python, JavaScript, AI technologies, web development, and much more. Check out my Skills section for a complete list!";
+            } else {
+                return "I'm sorry, I didn't understand that. Could you please rephrase? You can ask me about my skills or how to contact me.";
+            }
+        }
     </script>
 </body>
 </html>
